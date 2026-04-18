@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom CSS Variables ─────────────────────────────────── */
+:root {
+  --electric-blue: #00F0FF;
+  --neon-green: #00FF99;
+  --deep-black: #050508;
+  --scrollbar-width: 6px; 
+}
+
+/* ── Base Reset & Defaults ────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #050508;
+  color: #F0F0F8;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* Hide default cursor — custom one used */
+}
+
+/* Restore cursor for touch devices */
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #252535;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.4);
+}
+
+/* ── Selection Highlight ──────────────────────────────────── */
+::selection {
+  background: rgba(0, 240, 255, 0.2);
+  color: #00F0FF;
+}
+
+/* ── Focus Styles (Accessibility) ────────────────────────── */
+:focus-visible {
+  outline: 2px solid #00F0FF;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Grid Background Pattern ──────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridScroll 25s linear infinite;
+}
+
+@keyframes gridScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+/* ── Gradient Text Utility ────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #00F0FF 0%, #00FF99 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glowing Border Utility ──────────────────────────────── */
+.glow-border {
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 240, 255, 0.05) inset;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-border:hover {
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.15),
+    0 0 0 1px rgba(0, 240, 255, 0.1) inset;
+}
+
+/* ── Typing Cursor Animation ──────────────────────────────── */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: #00F0FF;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Custom Scrollbar for Modal ──────────────────────────── */
+.modal-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.2);
+  border-radius: 2px;
+}
+
+/* ── Shimmer Loading Effect ──────────────────────────────── */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(0, 240, 255, 0.05) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
