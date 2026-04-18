@@ -316,7 +316,7 @@ export function Hero() {
               {/* Image container */}
               <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-electric-blue/30 shadow-2xl">
                 <Image
-                  src="/images/klaus.jpeg"
+                  src="/images/klaus1.png"
                   alt="Nicholus Nkonge"
                   fill
                   className="object-cover"
